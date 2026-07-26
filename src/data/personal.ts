@@ -26,6 +26,6 @@ export const personalData = {
       "AI/ML Enthusiast"
     ]
   },
-  resumeUrl: "https://drive.google.com/file/d/1788z5x3RRQqJhBGXJHepODrSa60OBG48/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/18F7fpTIWSvjmYdtyAu-NZUMCnh9D_7dY/view?usp=sharing",
   portraitUrl: "/my-photo.png"
 };

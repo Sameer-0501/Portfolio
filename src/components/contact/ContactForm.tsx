@@ -166,7 +166,6 @@ export const ContactForm: React.FC = () => {
                                     type="text"
                                     value={formData.fullName}
                                     onChange={handleChange}
-                                    placeholder="e.g. Alex Morgan"
                                     aria-invalid={!!errors.fullName}
                                     aria-describedby={errors.fullName ? "fullName-error" : undefined}
                                     className={`w-full px-4 py-3 rounded-xl bg-elevatedSurface/80 border text-sm text-textPrimary placeholder:text-mutedText/60 focus:outline-none focus:ring-2 focus:ring-highlight transition-all duration-200 ${
@@ -192,7 +191,6 @@ export const ContactForm: React.FC = () => {
                                     type="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    placeholder="e.g. alex@company.com"
                                     aria-invalid={!!errors.email}
                                     aria-describedby={errors.email ? "email-error" : undefined}
                                     className={`w-full px-4 py-3 rounded-xl bg-elevatedSurface/80 border text-sm text-textPrimary placeholder:text-mutedText/60 focus:outline-none focus:ring-2 focus:ring-highlight transition-all duration-200 ${

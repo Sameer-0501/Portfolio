@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { personalData } from '../data/personal';
-import { 
-  Code2, 
-  Sparkles, 
-  Database, 
-  Cpu, 
-  Layers, 
-  Bot 
+import {
+  Coffee,
+  Sparkles,
+  Code2,
+  Layers,
+  Server,
+  Database
 } from 'lucide-react';
 
 interface HeroPortraitProps {
@@ -16,52 +16,52 @@ interface HeroPortraitProps {
   className?: string;
 }
 
-// Tech Badges Configuration with positioning and icons
+// Tech Badges Configuration with positioning and icons in requested order
 const techBadges = [
-  { 
-    name: 'React', 
-    icon: Code2, 
-    color: 'text-highlight',
+  {
+    name: 'Java',
+    icon: Coffee,
+    color: 'text-primaryAccent',
     position: 'top-2 -left-4 sm:-left-10 lg:-left-12',
     floatDelay: 0,
     connectionPath: 'M 30,30 Q 80,40 120,70'
   },
-  { 
-    name: 'TypeScript', 
-    icon: Layers, 
-    color: 'text-lightAccent',
-    position: 'top-1/2 -left-6 sm:-left-12 lg:-left-16 -translate-y-1/2',
-    floatDelay: 0.5,
-    connectionPath: 'M 30,170 Q 90,170 120,170'
-  },
-  { 
-    name: 'Java', 
-    icon: Cpu, 
-    color: 'text-primaryAccent',
-    position: 'bottom-4 -left-4 sm:-left-8 lg:-left-10',
-    floatDelay: 1,
-    connectionPath: 'M 30,310 Q 80,290 120,270'
-  },
-  { 
-    name: 'Spring Boot', 
-    icon: Sparkles, 
+  {
+    name: 'Spring Boot',
+    icon: Sparkles,
     color: 'text-softAccent',
     position: 'top-4 -right-4 sm:-right-8 lg:-right-10',
     floatDelay: 0.3,
     connectionPath: 'M 370,30 Q 320,50 280,70'
   },
-  { 
-    name: 'PostgreSQL', 
-    icon: Database, 
+  {
+    name: 'JavaScript',
+    icon: Code2,
+    color: 'text-lightAccent',
+    position: 'top-1/2 -left-6 sm:-left-12 lg:-left-16 -translate-y-1/2',
+    floatDelay: 0.5,
+    connectionPath: 'M 30,170 Q 90,170 120,170'
+  },
+  {
+    name: 'React',
+    icon: Layers,
     color: 'text-highlight',
     position: 'top-1/2 -right-6 sm:-right-12 lg:-right-16 -translate-y-1/2',
     floatDelay: 0.8,
     connectionPath: 'M 370,170 Q 310,170 280,170'
   },
-  { 
-    name: 'AI / ML', 
-    icon: Bot, 
-    color: 'text-lightAccent',
+  {
+    name: 'ASP.NET',
+    icon: Server,
+    color: 'text-primaryAccent',
+    position: 'bottom-4 -left-4 sm:-left-8 lg:-left-10',
+    floatDelay: 1,
+    connectionPath: 'M 30,310 Q 80,290 120,270'
+  },
+  {
+    name: 'PostgreSQL',
+    icon: Database,
+    color: 'text-softAccent',
     position: 'bottom-6 -right-4 sm:-right-8 lg:-right-10',
     floatDelay: 1.2,
     connectionPath: 'M 370,310 Q 320,290 280,270'
@@ -75,7 +75,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
 }) => {
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
-      
+
       {/* ================= BACKGROUND GLOW & HALO ================= */}
       <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
         {/* Soft Radial Warm Halo */}
@@ -84,10 +84,10 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
       </div>
 
       {/* ================= SVG CONNECTOR LINES ================= */}
-      <svg 
+      <svg
         className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden sm:block overflow-visible"
-        viewBox="0 0 400 400" 
-        fill="none" 
+        viewBox="0 0 400 400"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
@@ -112,7 +112,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
 
       {/* ================= MAIN PORTRAIT CARD CONTAINER ================= */}
       <div className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] aspect-[4/5] z-10">
-        
+
         {/* Rotating Subtle Warm Aura Border */}
         <motion.div
           animate={{ rotate: 360 }}
@@ -129,7 +129,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
         >
           {/* Inner Image Container (Supports transparent PNGs and photos) */}
           <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-gradient-to-b from-surface via-elevatedSurface to-background flex items-center justify-center">
-            
+
             {/* Portrait Image */}
             <img
               src={imageSrc}

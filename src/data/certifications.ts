@@ -22,18 +22,7 @@ export const certificationCategories = [
 export type CertificationCategory = typeof certificationCategories[number];
 
 export const certificationsData: CertificationItem[] = [
-    {
-        id: "ibm-ml",
-        title: "Machine Learning with Python",
-        issuer: "IBM",
-        issueDate: "2024",
-        credentialId: "IBM-ML-984210",
-        verificationUrl: "https://coursera.org/verify/ibm-ml",
-        category: "AI / ML",
-        status: "Completed",
-        description: "Certification demonstrating expertise in machine learning concepts, regression, classification, clustering algorithms, and model evaluation using Python.",
-        icon: "cpu"
-    },
+
     {
         id: "ethontech-java",
         title: "Java Programming Masterclass",
@@ -105,5 +94,17 @@ export const certificationsData: CertificationItem[] = [
         status: "Completed",
         description: "Acquired deep practical knowledge in modern frontend engineering, responsive design principles, CSS architecture, and web performance optimization.",
         icon: "layout"
+    },
+    {
+        id: "ibm-ml",
+        title: "Machine Learning with Python",
+        issuer: "IBM",
+        issueDate: "2024",
+        credentialId: "IBM-ML-984210",
+        verificationUrl: "https://coursera.org/verify/ibm-ml",
+        category: "AI / ML",
+        status: "Completed",
+        description: "Certification demonstrating expertise in machine learning concepts, regression, classification, clustering algorithms, and model evaluation using Python.",
+        icon: "cpu"
     }
 ];

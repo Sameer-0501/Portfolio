@@ -77,10 +77,10 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
     <div className={`relative flex items-center justify-center ${className}`}>
 
       {/* ================= BACKGROUND GLOW & HALO ================= */}
-      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden transform-gpu" aria-hidden="true">
         {/* Soft Radial Warm Halo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-primaryAccent/8 rounded-full blur-[90px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[340px] h-[280px] sm:h-[340px] bg-highlight/5 rounded-full blur-[70px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-primaryAccent/8 rounded-full blur-3xl sm:blur-[80px] transform-gpu will-change-transform" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[340px] h-[280px] sm:h-[340px] bg-highlight/5 rounded-full blur-2xl sm:blur-[60px] transform-gpu will-change-transform" />
       </div>
 
       {/* ================= SVG CONNECTOR LINES ================= */}
@@ -111,13 +111,13 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
       </svg>
 
       {/* ================= MAIN PORTRAIT CARD CONTAINER ================= */}
-      <div className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] aspect-[4/5] z-10">
+      <div className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] aspect-[4/5] z-10 transform-gpu">
 
         {/* Rotating Subtle Warm Aura Border */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -inset-[2px] rounded-[30px] bg-gradient-to-tr from-highlight/50 via-primaryAccent/35 to-darkAccent/20 opacity-60 blur-xs pointer-events-none"
+          className="absolute -inset-[2px] rounded-[30px] bg-gradient-to-tr from-highlight/50 via-primaryAccent/35 to-darkAccent/20 opacity-60 blur-xs pointer-events-none transform-gpu will-change-transform"
           aria-hidden="true"
         />
 
@@ -125,7 +125,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
         <motion.div
           whileHover={{ y: -6, scale: 1.015 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative w-full h-full rounded-[28px] bg-card border border-white/10 p-3 flex flex-col justify-between shadow-large overflow-hidden backdrop-blur-xl group cursor-pointer"
+          className="relative w-full h-full rounded-[28px] bg-card border border-white/10 p-3 flex flex-col justify-between shadow-large overflow-hidden backdrop-blur-md lg:backdrop-blur-xl group cursor-pointer transform-gpu"
         >
           {/* Inner Image Container (Supports transparent PNGs and photos) */}
           <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-gradient-to-b from-surface via-elevatedSurface to-background flex items-center justify-center">

@@ -31,23 +31,45 @@ export const Navbar = () => {
     ], []);
 
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 40);
-
-            const sections = navLinks.map(link => link.href.substring(1));
-            let current = 'home';
-
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element && window.scrollY >= (element.offsetTop - 150)) {
-                    current = section;
-                }
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 40);
+                    ticking = false;
+                });
+                ticking = true;
             }
-            setActiveSection(current);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        // IntersectionObserver for zero-layout-thrashing active section detection
+        const sectionElements = navLinks
+            .map(link => document.getElementById(link.href.substring(1)))
+            .filter((el): el is HTMLElement => el !== null);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0.05
+            }
+        );
+
+        sectionElements.forEach(el => observer.observe(el));
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            observer.disconnect();
+        };
     }, [navLinks]);
 
     useEffect(() => {
@@ -84,18 +106,18 @@ export const Navbar = () => {
         <>
             {/* Scroll Progress Bar */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-highlight to-primaryAccent origin-left z-50"
+                className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-highlight to-primaryAccent origin-left z-50 transform-gpu pointer-events-none"
                 style={{ scaleX }}
             />
 
             <header className={cn(
-                "fixed top-0 left-0 right-0 z-40 transition-all duration-500 flex justify-center mt-2",
+                "fixed top-0 left-0 right-0 z-40 transition-all duration-300 flex justify-center mt-2 transform-gpu will-change-transform",
                 isScrolled ? "py-2" : "py-6"
             )}>
                 <nav className={cn(
-                    "flex items-center justify-between w-full max-w-7xl mx-6 transition-all duration-500",
+                    "flex items-center justify-between w-full max-w-7xl mx-6 transition-all duration-300 transform-gpu",
                     isScrolled
-                        ? "bg-card/90 backdrop-blur-xl border border-white/10 shadow-medium rounded-2xl px-4 py-3"
+                        ? "bg-card/95 backdrop-blur-md lg:backdrop-blur-xl border border-white/10 shadow-medium rounded-2xl px-4 py-3"
                         : "bg-transparent px-2 py-2"
                 )}>
                     {/* Logo (Left) */}

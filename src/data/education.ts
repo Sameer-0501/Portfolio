@@ -20,8 +20,8 @@ export const educationData: EducationItem[] = [
         specialization: "Information Science and Engineering",
         institution: "East West Institute of Technology",
         location: "Bengaluru, Karnataka, India",
-        period: "2022 — Expected 2026",
-        gpa: "Current CGPA: 8.0 / 10.0",
+        period: "2022 — 2026",
+        gpa: "Current CGPA: 8.1 / 10.0",
         description: "Pursued a comprehensive engineering curriculum in Information Science with a strong foundation in data structures, algorithms, database systems, software engineering, and modern web applications.",
 
         coursework: [
@@ -48,7 +48,7 @@ export const educationData: EducationItem[] = [
         degree: "Pre-University Course (12th)",
         specialization: "Physics, Chemistry, Mathematics, Biology (PCMB)",
         institution: "Nagarjuna PU College",
-        location: "Bengaluru, Karnataka, India",
+        location: "Chikkaballapura, Karnataka, India",
         period: "2020 — 2022",
         gpa: "Score: 84.4%",
         description: "Completed pre-university education with distinction in STEM disciplines.",
